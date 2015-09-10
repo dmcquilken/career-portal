@@ -71,6 +71,24 @@ aside {
         overflow: auto;
         padding: 1em;
 
+        > div.apply-now-section {
+
+            margin-bottom: 20px;
+
+            > button.apply-now {
+                margin: auto;
+                width: 200px;
+                background-color: #ACC72E;
+                border: 1px solid #18ab29;
+                cursor: pointer;
+                color: #ffffff;
+                font-family: Arial;
+                font-size: 17px;
+                margin-top: 15px;
+                text-decoration: none;
+            }
+        }
+
         > div.keyword-search {
             position: relative;
             margin: 1em 0 2em;

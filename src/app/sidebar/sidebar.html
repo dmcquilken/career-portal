@@ -12,6 +12,9 @@
         </div>
     </header>
     <section>
+        <div align="center" class="apply-now-section">
+            <button data-ng-click="sidebar.applyModal()" class="apply-now" name="apply-now">Apply Now</button>
+        </div>
         <div class="keyword-search">
             <label for="keyword"><i class="bhi-search"></i></label>
             <input class="search" type="text" data-ng-change="sidebar.searchOnDelay()" data-ng-model="sidebar.SearchService.searchParams.textSearch" id="keyword" name="keyword" data-i18n-attr="{placeholder: 'sidebar.sidebarSearchPlaceholder'}"/>
@@ -19,7 +22,6 @@
                 <i class="bhi-times"></i>
             </button>
         </div>
-
         <section class="filter-section" data-ng-class="{'active':!sidebar.locationLimitTo}">
             <div class="filter-section-header">
                 <h4>{{'sidebar.locationSectionHeading' | i18n}}</h4>

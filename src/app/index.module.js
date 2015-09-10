@@ -9,6 +9,7 @@ import Main from './main/main.directive';
 import CareerPortalSidebar from './sidebar/sidebar.directive';
 import CareerPortalHeader from './header/header.directive';
 import CareerPortalModal from './modal/modal.directive';
+import CareerPortalModal2 from './modal2/modal.directive';
 
 import SearchService from './services/search.service';
 import ShareService from './services/share.service';
@@ -28,6 +29,7 @@ angular.module('CareerPortal', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ui.router
     .directive('careerPortalSidebar', () => new CareerPortalSidebar())
     .directive('careerPortalHeader', () => new CareerPortalHeader())
     .directive('careerPortalModal', () => new CareerPortalModal())
+    .directive('careerPortalModal2', () => new CareerPortalModal2())
     .controller('JobListController', JobListController)
     .controller('JobDetailController', JobDetailController)
     .filter('stripHtml', () => new StripHtmlFilter())

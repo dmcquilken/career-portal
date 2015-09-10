@@ -1,0 +1,86 @@
+<div class="modal-container">
+    <div class="modal slide-up" data-ng-class="{'success':!modal2.showForm}">
+        <div class="main" data-ng-class="{'success':!modal2.showForm}">
+            <form name="applyForm" class="apply-form" novalidate data-ng-show="modal2.showForm">
+                <div class="form-field">
+                    <div class="input">
+                        <span class="required">*</span>
+                        <input type="text" name="firstName" value="" data-ng-model="modal2.ApplyService.form.firstName" data-i18n-attr="{placeholder: 'modal2.firstNamePlaceholder'}" required>
+                    </div>
+                    <span class="error" data-ng-show="applyForm.firstName.$dirty || applyForm.$submitted">
+                        <span data-ng-show="applyForm.firstName.$error.required">{{'modal2.firstNameValidation' | i18n}}</span>
+                    </span>
+                </div>
+                <div class="form-field">
+                    <div class="input">
+                        <span class="required">*</span>
+                        <input type="text" name="lastName" value="" data-ng-model="modal2.ApplyService.form.lastName" data-i18n-attr="{placeholder: 'modal2.lastNamePlaceholder'}" required>
+                    </div>
+                    <span class="error" data-ng-show="applyForm.lastName.$dirty || applyForm.$submitted">
+                        <span data-ng-show="applyForm.lastName.$error.required">{{'modal2.lastNameValidation' | i18n}}</span>
+                    </span>
+                </div>
+                <div class="form-field">
+                    <div class="input">
+                        <span class="required">*</span>
+                        <input type="email" name="email" value="" data-ng-model="modal2.ApplyService.form.email" data-i18n-attr="{placeholder: 'modal2.emailPlaceholder'}" required>
+                    </div>
+                    <span class="error" data-ng-show="applyForm.email.$dirty || applyForm.$submitted">
+                        <span data-ng-show="applyForm.email.$error.required">
+                            {{'modal2.emailValidationRequired' | i18n}}
+                        </span>
+                        <span data-ng-show="applyForm.email.$error.email">
+                            {{'modal2.emailValidationFormat' | i18n}}
+                        </span>
+                    </span>
+                </div>
+                <div class="form-field">
+                    <div class="input">
+                        <span>&nbsp;</span>
+                        <input type="text" name="mobile-phone" value="" data-ng-model="modal2.ApplyService.form.phone" data-i18n-attr="{placeholder: 'modal2.phonePlaceholder'}">
+                    </div>
+                </div>
+                <div class="upload-label" >
+                    <span class="field-label">
+                        {{'modal2.resumeFilePlaceholder' | i18n}}
+                        <i class="bhi-question" data-ng-if="!modal2.isMobile" data-tooltips data-tooltip-class="accepted-formats" data-tooltip-show-trigger="mouseenter" data-tooltip-hide-trigger="mouseleave" data-tooltip-side="right" data-tooltip-title="Supported File Formats" data-tooltip-html="{{::modal2.getTooltipText()}}"></i>
+                    </span>
+                    <span class="error" data-ng-show="!applyForm.$submitted && modal2.resumeUploadErrorMessage">
+                        {{modal2.resumeUploadErrorMessage}}
+                    </span>
+                    <span class="error" data-ng-show="applyForm.$submitted && !modal2.ApplyService.form.resumeInfo">
+                        {{'modal2.resumeValidation' | i18n}}
+                    </span>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-field upload-container" data-ngf-select data-ng-model="modal2.ApplyService.form.resumeInfo" data-ngf-min-size="modal2.configuration.minUploadSize" data-ngf-max-size="modal2.configuration.maxUploadSize" data-ngf-multiple="false" data-ngf-accept="applyForm.$submitted=false;modal2.validateResume($file);">
+                    <i data-ng-show="!modal2.ApplyService.form.resumeInfo.name" class="bhi-publish"></i>
+                    <i data-ng-show="modal2.ApplyService.form.resumeInfo.name" class="bhi-resume"></i>
+                    <span class="upload-text" data-ng-show="!modal2.ApplyService.form.resumeInfo.name">{{'modal2.uploadResumeFile' | i18n}}</span>
+                    <span class="upload-text" data-ng-show="modal2.ApplyService.form.resumeInfo.name">{{modal2.ApplyService.form.resumeInfo.name}}</span>
+                </div>
+                <span class="error submit-error" data-ng-show="applyForm.$submitted && modal2.ApplyService.ajaxError">
+                    <i class="bhi-caution"></i> <span>{{modal2.ApplyService.ajaxError}}</span>
+                </span>
+            </form>
+            <footer data-ng-class="{'success':!modal2.showForm}">
+                <button data-ng-show="modal2.showForm" name="cancel" data-ng-click="modal2.closeModal(applyForm)">{{'modal2.cancelButton' | i18n}}</button>
+                <button data-ng-show="modal2.showForm" name="submit" data-ng-click="modal2.submit(applyForm)">
+                    <span data-ng-if="!modal2.isSubmitting">
+                        {{'modal2.submitButton' | i18n}}
+                    </span>
+                    <span data-ng-if="modal2.isSubmitting">
+                        <div class="loading">
+                            {{'modal2.submittingButton' | i18n}}
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                        </div>
+                    </span>
+                </button>
+                <button data-ng-show="!modal2.showForm" name="ok" data-ng-click="modal2.closeModal(applyForm)">{{'modal2.okButton' | i18n}}</button>
+            </footer>
+        </div>
+    </div>
+</div>

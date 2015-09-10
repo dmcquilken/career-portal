@@ -26,6 +26,10 @@ class CareerPortalSidebarController {
         }), this.updateFilterCountsAnonymous());
     }
 
+    applyModal() {
+        this.SharedData.modalState = 'open';
+    }
+
     updateLocationLimitTo(value) {
         this.locationLimitTo = value;
     }

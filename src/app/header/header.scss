@@ -3,7 +3,6 @@ header.app {
     min-height: $header-height;
     padding: 0 1.5em;
     text-align: center;
-
     background-color: $header-bg;
     color: $white;
     z-index: $header-z-index;
@@ -12,15 +11,28 @@ header.app {
         text-align: left;
     }
 
-    > label {
-        display: inline-block;
-        font-size: 2em;
-        font-weight: 700;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        line-height: $header-height;
-        width: 75%;
+    > div.container-div {
+        height: 60px;
+        diplay: inline; 
+        padding: 15px;
+
+        > label.companyLabel {
+            font-family: Arial; 
+            font-size:25px; 
+            font-weight:bold;
+        }
+
+        > button.logIn {
+            float:right;
+            background-color: #ACC72E;
+            border:1px solid #18ab29;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:17px;
+            text-decoration:none;
+        }
+
     }
 
     > button {
